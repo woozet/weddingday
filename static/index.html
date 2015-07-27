@@ -1,0 +1,194 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Junhee and Shine Wedding Day
+	</title>
+	<link rel="stylesheet" href="pure-min.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<style type="text/css">
+		.button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: #181057;
+            border-radius: 0px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-warning {
+        	color:;
+        }
+
+        .button-success {
+            background: rgba(28, 184, 65, 0); /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(255, 131, 167); /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(255, 131, 167); /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(255, 131, 167); /* this is a light blue */
+        }
+        #slides {
+	      display:none;
+	    }
+	</style>
+</head>
+<body>
+	
+	<div>
+		<img class="pure-img" src="title.jpg" />
+	</div>
+	<div style="position:relative; border-top:solid 2px #e9b5b5; border-bottom:solid 2px #e9b5b5">
+		<div id="slides">
+			<img src="slides/slide0.jpg" />
+			<img src="slides/slide1.jpg" />
+			<img src="slides/slide2.jpg" />
+			<img src="slides/slide3.jpg" />
+			<img src="slides/slide4.jpg" />
+			<img src="slides/slide5.jpg" />
+			<img src="slides/slide6.jpg" />
+			<img src="slides/slide7.jpg" />
+			<img src="slides/slide8.jpg" />
+			<img src="slides/slide9.jpg" />
+		</div>
+		<div style="position:absolute; width:230px; padding:5px; bottom:30px; right:0px; z-index:999; background-color:rgba(231,122,122,0.7); color:#fff; ">
+			<strong>2015.8.22. pm 1:00</strong><br>
+			강변역 웨딩스퀘어 3층 베니르홀
+			
+		</div>
+	</div>
+	<div style="background:url('background.jpg'); background-size:100%">
+		<!-- <div class="pure-g">
+			<div class="pure-u-1-1" style="padding:30px 0">
+				문구영역
+			</div>
+		</div> -->
+		<div class="pure-g">
+			<div class="pure-u-1-3">
+		    	<div style="position:relative; width:100px; margin: 0 auto;">
+			    	<a href="tel:01028862266" id="call-to-groom" class="pure-button button-success" style="padding: 10px 0;">
+			    		<img src="face_june.png" width="100" />
+				    	<div style="position:absolute; right:0px; bottom:10px;">
+				    		<img src="phone_green.png" width="32" />
+				    	</div>
+			    	</a>
+		    	</div>
+		    </div>
+		    <div class="pure-u-1-3">
+		    	<div style="width:100px; margin: 0 auto; padding-top:30px;">
+		    		<img src="fingerprint.png" width="100"/>	
+		    	</div>
+		    </div>
+		    <div class="pure-u-1-3">
+		    	<div style="position:relative; width:100px; margin: 0 auto;">
+			    	<a href="tel:01094882460" id="call-to-bride" class="pure-button button-success" style="padding: 10px 0;">
+		    			<img src="face_shine.png" width="100"/>
+		    			<div style="position:absolute; right:0px; bottom:10px;">
+				    		<img src="phone_pink.png" width="32" />
+				    	</div>
+			    	</a>
+		 	   </div>
+		 	</div>
+		</div>
+	</div>
+	<div id="map_div"></div>
+	<div class="pure-g" style="padding:30px 0">
+	    <div class="pure-u-1-2">
+	    	<button id="tmap_go" class="pure-button button-success" style="width:100%;">
+	    		<img src="icon_tmap.png" width="50" style="padding-bottom:8px" /><br>
+	    		<img src="text_nav_tmap.png" width="70" />
+	    	</button>
+	    </div>
+	    <div class="pure-u-1-2">
+	    	<a href="http://map.daum.net/link/to/21354937" class="pure-button button-success" style="width:100%;">
+				<img src="icon_daummap.png" width="50" style="padding-bottom:8px"/><br>
+	    		<img src="text_nav_dmap.png" width="70" />
+	    	</a>
+	    </div>
+	</div>
+
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.slides.min.js"></script>
+	<script type="text/javascript" src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=8d3819d3-2990-3a91-862c-20af485c9f77"></script>
+	<script type="text/javascript">
+		var map, lonlat;
+
+		$(function() {
+			function init(){
+			    map = new Tmap.Map({div:'map_div', 
+			           width:'100%', 
+			           height:"250px"
+			            });
+			    lonlat = new Tmap.LonLat(14148167.3963655, 4514121.2094820);
+			    map.setCenter(lonlat, 16);
+
+			    var markers = new Tmap.Layer.Markers( "MarkerLayer" );
+				map.addLayer(markers);
+				 
+				var size = new Tmap.Size(30,44);
+				var offset = new Tmap.Pixel(-(size.w/2), -size.h);
+				var size2 = new Tmap.Size(200,41);
+				var offset2 = new Tmap.Pixel(-(size2.w/2), -size2.h);
+				var icon = new Tmap.Icon('poi.png', size, offset);  
+				var icon2 = new Tmap.Icon('marker_panel.png', size2, offset2);  
+				 
+				var marker = new Tmap.Marker(lonlat, icon);
+				var marker2 = new Tmap.Marker(new Tmap.LonLat(14148167, 4514250), icon2);
+				markers.addMarker(marker);
+				markers.addMarker(marker2);
+			}
+			function invokeTmap(e){
+			     map.tmapAppInvoke({
+			         platform:"auto",
+			         client:"sk",
+			         title:"우준희 전신혜 결혼식 (웨딩스퀘어 베니르홀)",
+			         lonlat:lonlat,
+			         bizAppId:"none",
+			         alert:false
+			     });
+			};
+
+			init();
+			$("#tmap_go").click(invokeTmap);
+
+			$("#slides").slidesjs({
+		        width: 800,
+		        height: 800,
+		        navigation: {
+		        	active: false
+		        },
+		        pagination: {
+		        	active: false
+		        },
+		        play: {
+			      active: false,
+			        // [boolean] Generate the play and stop buttons.
+			        // You cannot use your own buttons. Sorry.
+			      effect: "slide",
+			        // [string] Can be either "slide" or "fade".
+			      interval: 7000,
+			        // [number] Time spent on each slide in milliseconds.
+			      auto: true,
+			        // [boolean] Start playing the slideshow on load.
+			      swap: true,
+			        // [boolean] show/hide stop and play buttons
+			      pauseOnHover: false,
+			        // [boolean] pause a playing slideshow on hover
+			      restartDelay: 2500
+			        // [number] restart delay on inactive slideshow
+			    }
+		    });
+		});
+		
+	</script>
+</body>
+
+</html>
