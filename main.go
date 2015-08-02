@@ -1,15 +1,17 @@
-package hello
+package weddingday
 
 import (
-    "fmt"
-    "net/http"
+	"net/http"
 )
 
 func init() {
-    http.HandleFunc("/", handler)
+	http.HandleFunc("/", handler)
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprint(w, "Wedding day! Wedding Square Venir Hall (3F), Kangbyun, Seoul");
+	http.FileServer(http.Dir("static"))
 }
 
+func main() {
+
+}
